@@ -8,6 +8,7 @@ power-assert instrumentor for [6to5](https://6to5.org/ "6to5 · Turn ES6+ code i
 
 Please note that `espower-6to5` is a beta version product. Pull-requests, issue reports and patches are always welcomed. See [power-assert](http://github.com/twada/power-assert) project for more documentation.
 
+If you want to use with [Traceur](https://github.com/google/traceur-compiler "Traceur"), please see [yosuke-furukawa/espower-traceur](https://github.com/yosuke-furukawa/espower-traceur "yosuke-furukawa/espower-traceur").
 
 ## EXAMPLE
 
@@ -153,3 +154,9 @@ Then, run mocha with `--require` option
 ## License
 
 MIT
+
+Includes [yosuke-furukawa/espower-traceur](https://github.com/yosuke-furukawa/espower-traceur "yosuke-furukawa/espower-traceur")
+
+## Acknowledgements
+
+Thanks to [yosuke-furukawa/espower-traceur](https://github.com/yosuke-furukawa/espower-traceur "yosuke-furukawa/espower-traceur").
