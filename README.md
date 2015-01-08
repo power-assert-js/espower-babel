@@ -43,10 +43,10 @@ describe("Person", ()=>{
 })
 ```
 
-Run mocha with `--require 'espower-6to5/guess'`
+Run mocha with `--compilers js:espower-6to5/guess`
 
 ```
-$ mocha --require 'espower-6to5/guess' test/demo_test.js
+$ mocha --compilers js:espower-6to5/guess test/demo_test.js
 
   ․․․
 
@@ -83,9 +83,9 @@ See the power-assert output appears!
 
 ### Zero-config mode
 
-If your tests are located on `'test/**/*.js'`, just run mocha with `--require 'espower-6to5/guess'`
+If your tests are located on `'test/**/*.js'`, just run mocha with `--compilers js:espower-6to5/guess`
 
-    $ mocha --require 'espower-6to5/guess' test/**/*.js
+    $ mocha --compilers js:espower-6to5/guess test/**/*.js
 
 
 ### If your tests are not in test dir
@@ -104,9 +104,9 @@ You can set test directory in your `package.json`
 }
 ```
 
-Then, run mocha with `--require 'espower-6to5/guess'`
+Then, run mocha with `--compilers js:espower-6to5/guess`
 
-    $ mocha --require 'espower-6to5/guess' spec/**/*.js
+    $ mocha --compilers js:espower-6to5/guess spec/**/*.js
 
 Note: `'espower-6to5/guess'` is inspired by [intelli-espower-loader](https://github.com/azu/intelli-espower-loader)
 
