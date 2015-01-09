@@ -1,6 +1,6 @@
 {
   "name": "espower-6to5",
-  "description": "espower for 6to5",
+  "description": "power-assert instrumentor for 6to5",
   "keywords": [
     "6to5",
     "power-assert",
@@ -31,8 +31,10 @@
   "bugs": {
     "url": "https://github.com/azu/espower-6to5/issues"
   },
+  "peerDependencies": {
+    "6to5": "^2.0.0"
+  },
   "dependencies": {
-    "6to5": "^2.7.4",
     "convert-source-map": "^0.4.1",
     "espower-source": "^0.10.0",
     "minimatch": "^2.0.1",
