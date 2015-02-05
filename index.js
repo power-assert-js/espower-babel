@@ -1,5 +1,5 @@
 'use strict';
-var to5 = require('6to5');
+var to5 = require('6to5-core');
 var fs = require("fs");
 var minimatch = require('minimatch');
 var extend = require('xtend');
