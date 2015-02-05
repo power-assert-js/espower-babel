@@ -3,9 +3,9 @@ let formatter = require("power-assert-formatter")()
 let assert = empower(require("assert"), formatter)
 let expect = require("expect.js")
 
-describe("power-assert message", ()=>{
+describe("power-assert message", function(){
 
-  beforeEach(()=>{
+  beforeEach(function(){
     this.expectPowerAssertMessage = (body, expectedLines) => {
       try {
         body()
@@ -16,7 +16,7 @@ describe("power-assert message", ()=>{
     }
   })
 
-  it("Nested CallExpression with BinaryExpression: assert((three * (seven * ten)) === three)", ()=> {
+  it("Nested CallExpression with BinaryExpression: assert((three * (seven * ten)) === three)", function(){
     let one = 1
     let two = 2
     let three = 3
@@ -40,7 +40,7 @@ describe("power-assert message", ()=>{
     )
   })
 
-  it("equal with Literal and Identifier: assert.equal(1, minusOne)", ()=>{
+  it("equal with Literal and Identifier: assert.equal(1, minusOne)", function(){
     let minusOne = -1
     let expected =
 `  assert.equal(1, minusOne)
