@@ -1,8 +1,8 @@
 {
-  "name": "espower-6to5",
-  "description": "power-assert instrumentor for 6to5",
+  "name": "espower-babel",
+  "description": "power-assert instrumentor for babel",
   "keywords": [
-    "6to5",
+    "babel",
     "power-assert",
     "ES6",
     "ECMAScript",
@@ -10,10 +10,10 @@
     "testing"
   ],
   "version": "1.2.1",
-  "homepage": "https://github.com/azu/espower-6to5/",
+  "homepage": "https://github.com/azu/espower-babel/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/azu/espower-6to5.git"
+    "url": "https://github.com/azu/espower-babel.git"
   },
   "main": "index.js",
   "files": [
@@ -29,7 +29,7 @@
   "author": "azu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/azu/espower-6to5/issues"
+    "url": "https://github.com/azu/espower-babel/issues"
   },
   "dependencies": {
     "babel-core": "*",
