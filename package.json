@@ -32,7 +32,7 @@
     "url": "https://github.com/azu/espower-6to5/issues"
   },
   "dependencies": {
-    "6to5-core": "*",
+    "babel-core": "*",
     "convert-source-map": "^0.4.1",
     "espower-source": "^0.10.0",
     "minimatch": "^2.0.1",
