@@ -1,12 +1,12 @@
-# espower-6to5 [![Build Status](https://travis-ci.org/azu/espower-6to5.svg?branch=master)](https://travis-ci.org/azu/espower-6to5)
+# espower-babel [![Build Status](https://travis-ci.org/azu/espower-babel.svg?branch=master)](https://travis-ci.org/azu/espower-babel)
 
-power-assert instrumentor for [6to5](https://6to5.org/ "6to5 · Turn ES6+ code into readable vanilla ES5").
+power-assert instrumentor for [Babel](https://babeljs.io/ "Babel · The transpiler for writing next generation JavaScript").
 
 ## DESCRIPTION
 
-`espower-6to5` is a Node.js module loader that instruments [power-assert](http://github.com/twada/power-assert) feature into target ECMAScript6 sources on the fly.
+`espower-babel` is a Node.js module loader that instruments [power-assert](http://github.com/twada/power-assert) feature into target ECMAScript6 sources on the fly.
 
-Please note that `espower-6to5` is a beta version product. Pull-requests, issue reports and patches are always welcomed. See [power-assert](http://github.com/twada/power-assert) project for more documentation.
+Please note that `espower-babel` is a beta version product. Pull-requests, issue reports and patches are always welcomed. See [power-assert](http://github.com/twada/power-assert) project for more documentation.
 
 If you want to use with [Traceur](https://github.com/google/traceur-compiler "Traceur"), please see [yosuke-furukawa/espower-traceur](https://github.com/yosuke-furukawa/espower-traceur "yosuke-furukawa/espower-traceur").
 
@@ -43,10 +43,10 @@ describe("Person", ()=>{
 })
 ```
 
-Run mocha with `--compilers js:espower-6to5/guess`
+Run mocha with `--compilers js:espower-babel/guess`
 
 ```
-$ mocha --compilers js:espower-6to5/guess test/demo_test.js
+$ mocha --compilers js:espower-babel/guess test/demo_test.js
 
   ․․․
 
@@ -54,7 +54,7 @@ $ mocha --compilers js:espower-6to5/guess test/demo_test.js
   1 failing
 
   1) Person #mistake:
-     AssertionError:   # /Users/yosuke/go/src/github.com/azu/espower-6to5/test/demo_test.js:24
+     AssertionError:   # /Users/yosuke/go/src/github.com/azu/espower-babel/test/demo_test.js:24
 
   assert(alice.name === bob.name)
          |     |    |   |   |
@@ -76,16 +76,16 @@ See the power-assert output appears!
 
 ## INSTALL
 
-    $ npm install espower-6to5 -D
+    $ npm install espower-babel -D
 
 
 ## HOW TO USE
 
 ### Zero-config mode
 
-If your tests are located on `'test/**/*.js'`, just run mocha with `--compilers js:espower-6to5/guess`
+If your tests are located on `'test/**/*.js'`, just run mocha with `--compilers js:espower-babel/guess`
 
-    $ mocha --compilers js:espower-6to5/guess test/**/*.js
+    $ mocha --compilers js:espower-babel/guess test/**/*.js
 
 
 ### If your tests are not in test dir
@@ -104,19 +104,19 @@ You can set test directory in your `package.json`
 }
 ```
 
-Then, run mocha with `--compilers js:espower-6to5/guess`
+Then, run mocha with `--compilers js:espower-babel/guess`
 
-    $ mocha --compilers js:espower-6to5/guess spec/**/*.js
+    $ mocha --compilers js:espower-babel/guess spec/**/*.js
 
-Note: `'espower-6to5/guess'` is inspired by [intelli-espower-loader](https://github.com/azu/intelli-espower-loader)
+Note: `'espower-babel/guess'` is inspired by [intelli-espower-loader](https://github.com/azu/intelli-espower-loader)
 
 
 ### More customization
 
-If you want to configure more explicitly, put `espower-6to5-loader.js` somewhere in your project.
+If you want to configure more explicitly, put `espower-babel-loader.js` somewhere in your project.
 
 ```javascript
-require('espower-6to5')({
+require('espower-babel')({
     // directory where match starts with
     cwd: process.cwd(),
 
@@ -141,7 +141,7 @@ require('espower-6to5')({
 
 Then, run mocha with `--require` option
 
-    $ mocha --require ./path/to/espower-6to5-loader spec/unit/some_test_using_powerassert.js
+    $ mocha --require ./path/to/espower-babel-loader spec/unit/some_test_using_powerassert.js
 
 ## Contributing
 
