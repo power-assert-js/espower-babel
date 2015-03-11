@@ -9,11 +9,12 @@ var extensions = require.extensions,
     originalLoader = extensions['.js'];
 function espowerBabel(options) {
     var separator = (options.pattern.lastIndexOf('/', 0) === 0) ? '' : '/',
-        pattern = options.cwd + separator + options.pattern;
+        pattern = options.cwd + separator + options.pattern,
+        babelrc = options.babelrc || {};
 
     extensions['.js'] = function (localModule, filepath) {
         if (minimatch(filepath, pattern)) {
-            var result5 = babel.transform(fs.readFileSync(filepath, 'utf-8'), {filename: filepath});
+            var result5 = babel.transform(fs.readFileSync(filepath, 'utf-8'), extend(babelrc, {filename: filepath}));
             var resultCode = espowerSource(result5.code, filepath, extend(options.espowerOptions, {sourceMap: result5.map}));
             localModule._compile(resultCode, filepath);
         } else {
