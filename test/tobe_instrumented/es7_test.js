@@ -1,4 +1,4 @@
-require("babel/polyfill")
+require("babel-core/polyfill")
 
 let assert = require('power-assert')
 
