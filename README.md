@@ -143,6 +143,26 @@ Then, run mocha with `--require` option
 
     $ mocha --require ./path/to/espower-babel-loader spec/unit/some_test_using_powerassert.js
 
+## Babel transform options
+
+Babel has many transform options.
+
+- [Options · Babel](https://babeljs.io/docs/usage/options/ "Options · Babel")
+
+`espower-babel` support babel transform options by way of `.babelrc`
+
+`espower-babel` read `${cwd}/.babelrc` if exists.
+
+also manually configure babel transform options.
+
+```js
+require('espower-babel')({
+    babelrc: {
+        experimental: true
+    }
+})
+```
+
 ## Contributing
 
 1. Fork it!
