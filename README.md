@@ -149,11 +149,11 @@ Babel has many transform options.
 
 - [Options · Babel](https://babeljs.io/docs/usage/options/ "Options · Babel")
 
-`espower-babel` support babel transform options by way of `.babelrc`
+`espower-babel` support babel transform options with `.babelrc`
 
 `espower-babel` read `${cwd}/.babelrc` if exists.
 
-also manually configure babel transform options.
+also can manually configure babel transform options.
 
 ```js
 require('espower-babel')({
