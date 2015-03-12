@@ -18,7 +18,8 @@
   "main": "index.js",
   "files": [
     "index.js",
-    "guess.js"
+    "guess.js",
+    "lib"
   ],
   "scripts": {
     "test": "mocha --require './guess' test/**/*.js && mocha --require './test_loader/espower-traceur-loader' test/**/*.js"

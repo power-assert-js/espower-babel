@@ -1,5 +1,5 @@
-var fs = require('fs'),
-    path = require('path'),
+var path = require('path'),
+    resolveBabelrc = require('./lib/resolve-babelrc'),
     pattern = 'test/**/*.js',
     packageData,
     testDir,
@@ -11,11 +11,9 @@ if (packageData &&
     testDir = packageData.directories.test;
     pattern = testDir + ((testDir.lastIndexOf('/', 0) === 0) ? '' : '/') + '**/*.js';
 }
-try {
-  babelrc = JSON.parse(fs.readFileSync(path.join(process.cwd(), '.babelrc'), 'utf-8'));
-} catch (e) {
-  babelrc = {};
-}
+
+babelrc = resolveBabelrc(process.cwd(), {});
+
 require('./index')({
     cwd: process.cwd(),
     pattern: pattern,
