@@ -1,7 +1,9 @@
 var path = require('path'),
+    resolveBabelrc = require('./lib/resolve-babelrc'),
     pattern = 'test/**/*.js',
     packageData,
-    testDir;
+    testDir,
+    babelrc;
 packageData = require(path.join(process.cwd(), 'package.json'));
 if (packageData &&
     typeof packageData.directories === 'object' &&
@@ -9,7 +11,11 @@ if (packageData &&
     testDir = packageData.directories.test;
     pattern = testDir + ((testDir.lastIndexOf('/', 0) === 0) ? '' : '/') + '**/*.js';
 }
+
+babelrc = resolveBabelrc(process.cwd(), {});
+
 require('./index')({
     cwd: process.cwd(),
-    pattern: pattern
+    pattern: pattern,
+    babelrc: babelrc
 });

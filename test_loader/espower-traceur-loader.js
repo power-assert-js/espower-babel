@@ -18,5 +18,8 @@ require('..')({
             'assert.deepEqual(actual, expected, [message])',
             'assert.notDeepEqual(actual, expected, [message])'
         ]
+    },
+    babelrc: {
+      experimental: true
     }
 });
