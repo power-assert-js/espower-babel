@@ -20,6 +20,6 @@ require('..')({
         ]
     },
     babelrc: {
-      experimental: true
+        stage: 0
     }
 });
