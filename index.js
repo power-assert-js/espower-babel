@@ -3,8 +3,7 @@ var babel = require('babel-core');
 var fs = require("fs");
 var minimatch = require('minimatch');
 var extend = require('xtend');
-var convert = require('convert-source-map');
-var espowerSource = require('espower-source');
+var createEspowerPlugin = require('babel-plugin-espower/create');
 var extensions = require.extensions,
     originalLoader = extensions['.js'];
 function espowerBabel(options) {
@@ -14,9 +13,17 @@ function espowerBabel(options) {
 
     extensions['.js'] = function (localModule, filepath) {
         if (minimatch(filepath, pattern)) {
-            var result5 = babel.transform(fs.readFileSync(filepath, 'utf-8'), extend(babelrc, {filename: filepath}));
-            var resultCode = espowerSource(result5.code, filepath, extend(options.espowerOptions, {sourceMap: result5.map}));
-            localModule._compile(resultCode, filepath);
+            var babelOptions = extend(babelrc, {filename: filepath});
+            babelOptions.plugins = babelOptions.plugins || [];
+            var espowerPluginExists = babelOptions.plugins.some(function (plugin) {
+                var pluginName = typeof plugin === 'string' ? plugin : plugin.key;
+                return pluginName === 'babel-plugin-espower';
+            });
+            if (!espowerPluginExists) {
+                babelOptions.plugins.push(createEspowerPlugin(options.espowerOptions));
+            }
+            var result = babel.transform(fs.readFileSync(filepath, 'utf-8'), babelOptions);
+            localModule._compile(result.code, filepath);
         } else {
             originalLoader(localModule, filepath);
         }
