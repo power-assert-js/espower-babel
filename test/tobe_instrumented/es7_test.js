@@ -6,6 +6,6 @@ describe("ES7 async/await", ()=>{
   it("works", async()=>{
     let ok = await Promise.resolve("OK")
 
-    assert(ok === "OK")
+    assert(`${ok}` === "OK")
   })
 })
