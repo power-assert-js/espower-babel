@@ -1,6 +1,4 @@
-let empower = require("empower")
-let formatter = require("power-assert-formatter")()
-let assert = empower(require("assert"), formatter)
+let assert = require('power-assert')
 let expect = require("expect.js")
 
 describe("power-assert message", function(){
