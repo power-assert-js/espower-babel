@@ -1,5 +1,5 @@
 var path = require('path'),
-    resolveBabelrc = require('./lib/resolve-babelrc'),
+    resolveBabelrc = require('./lib/babelrc-util').resolveBabelrc,
     pattern = 'test/**/*.js',
     packageData,
     testDir,
