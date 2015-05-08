@@ -1,6 +1,6 @@
 'use strict';
 var babel = require('babel-core');
-var babelUtil = require('babel-core').util;
+var shouldIgnoreByBabel = require("./lib/babelrc-util").shouldIgnoreByBabel;
 var fs = require("fs");
 var minimatch = require('minimatch');
 var extend = require('xtend');
@@ -24,13 +24,6 @@ function espowerBabel(options) {
         return babelOptions;
     }
 
-    function shouldIgnoreByBabel(filename) {
-        if (!babelrc.ignore && !babelrc.only) {
-            return /node_modules/.test(filename);
-        } else {
-            return babelUtil.shouldIgnore(filename, babelrc.ignore || [], babelrc.only || []);
-        }
-    }
     extensions['.js'] = function (localModule, filepath) {
         var result;
         var babelOptions = extend(babelrc, {filename: filepath});
@@ -41,7 +34,7 @@ function espowerBabel(options) {
             return;
         }
         // transform the other files
-        if (shouldIgnoreByBabel(filepath)) {
+        if (shouldIgnoreByBabel(filepath, babelOptions)) {
             originalLoader(localModule, filepath);
         } else {
             result = babel.transform(fs.readFileSync(filepath, 'utf-8'), babelOptions);
