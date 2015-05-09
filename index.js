@@ -1,5 +1,6 @@
 'use strict';
 var babel = require('babel-core');
+var shouldIgnoreByBabel = require("./lib/babelrc-util").shouldIgnoreByBabel;
 var fs = require("fs");
 var minimatch = require('minimatch');
 var extend = require('xtend');
@@ -11,21 +12,33 @@ function espowerBabel(options) {
         pattern = options.cwd + separator + options.pattern,
         babelrc = options.babelrc || {};
 
+    function useEspower(babelOptions) {
+        babelOptions.plugins = babelOptions.plugins || [];
+        var espowerPluginExists = babelOptions.plugins.some(function (plugin) {
+            var pluginName = typeof plugin === 'string' ? plugin : plugin.key;
+            return pluginName === 'babel-plugin-espower';
+        });
+        if (!espowerPluginExists) {
+            babelOptions.plugins.push(createEspowerPlugin(options.espowerOptions));
+        }
+        return babelOptions;
+    }
+
     extensions['.js'] = function (localModule, filepath) {
+        var result;
+        var babelOptions = extend(babelrc, {filename: filepath});
+        // transform test files using espower's `pattern` value
         if (minimatch(filepath, pattern)) {
-            var babelOptions = extend(babelrc, {filename: filepath});
-            babelOptions.plugins = babelOptions.plugins || [];
-            var espowerPluginExists = babelOptions.plugins.some(function (plugin) {
-                var pluginName = typeof plugin === 'string' ? plugin : plugin.key;
-                return pluginName === 'babel-plugin-espower';
-            });
-            if (!espowerPluginExists) {
-                babelOptions.plugins.push(createEspowerPlugin(options.espowerOptions));
-            }
-            var result = babel.transform(fs.readFileSync(filepath, 'utf-8'), babelOptions);
+            result = babel.transform(fs.readFileSync(filepath, 'utf-8'), useEspower(babelOptions));
             localModule._compile(result.code, filepath);
-        } else {
+            return;
+        }
+        // transform the other files
+        if (shouldIgnoreByBabel(filepath, babelOptions)) {
             originalLoader(localModule, filepath);
+        } else {
+            result = babel.transform(fs.readFileSync(filepath, 'utf-8'), babelOptions);
+            localModule._compile(result.code, filepath);
         }
     };
 }
