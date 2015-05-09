@@ -163,6 +163,21 @@ require('espower-babel')({
 })
 ```
 
+### Transform all files with Babel **by default**
+
+Do limit transform files by setting `babelrc`
+
+```js
+require('espower-babel')({
+    babelrc: {
+        only: [
+            "src/**/*.js"
+        ]
+    }
+})
+```
+
+
 ## Contributing
 
 1. Fork it!
