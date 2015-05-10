@@ -5,6 +5,7 @@ var fs = require("fs");
 var minimatch = require("minimatch");
 var extend = require("xtend");
 var createEspowerPlugin = require("babel-plugin-espower/create");
+var sourceMapSupport = require("source-map-support");
 var extensions = require.extensions,
     originalLoader = extensions[".js"];
 function espowerBabel(options) {
@@ -12,6 +13,23 @@ function espowerBabel(options) {
         pattern = options.cwd + separator + options.pattern,
         babelrc = options.babelrc || {};
 
+    var sourceMaps = {};
+    // https://github.com/evanw/node-source-map-support
+    // `sourceMaps` is the cached map object of transform by babel
+    sourceMapSupport.install({
+        handleUncaughtExceptions: false,
+        retrieveSourceMap: function (source) {
+            var map = sourceMaps && sourceMaps[source];
+            if (map) {
+                return {
+                    url: null,
+                    map: map
+                };
+            } else {
+                return null;
+            }
+        }
+    });
     function useEspower(babelOptions) {
         babelOptions.plugins = babelOptions.plugins || [];
         var espowerPluginExists = babelOptions.plugins.some(function (plugin) {
@@ -26,10 +44,16 @@ function espowerBabel(options) {
 
     extensions[".js"] = function (localModule, filepath) {
         var result;
-        var babelOptions = extend(babelrc, {filename: filepath});
+        // https://babeljs.io/docs/usage/api/
+        var babelOptions = extend(babelrc, {
+            filename: filepath,
+            sourceMap: "both",
+            ast: false
+        });
         // transform test files using espower's `pattern` value
         if (minimatch(filepath, pattern)) {
             result = babel.transform(fs.readFileSync(filepath, "utf-8"), useEspower(babelOptions));
+            sourceMaps[filepath] = result.map;
             localModule._compile(result.code, filepath);
             return;
         }
@@ -38,6 +62,7 @@ function espowerBabel(options) {
             originalLoader(localModule, filepath);
         } else {
             result = babel.transform(fs.readFileSync(filepath, "utf-8"), babelOptions);
+            sourceMaps[filepath] = result.map;
             localModule._compile(result.code, filepath);
         }
     };
