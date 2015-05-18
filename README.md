@@ -6,7 +6,7 @@ This module wrapper of [babel-plugin-espower](https://github.com/power-assert-js
 
 ## Purpose
 
-- Run Test with power-assert on the fly!
+- Run Test with [power-assert](https://github.com/twada/power-assert) on the fly!
 - No configuration
 
 ## DESCRIPTION
