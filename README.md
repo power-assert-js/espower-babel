@@ -2,6 +2,13 @@
 
 power-assert instrumentor for [Babel](https://babeljs.io/ "Babel · The transpiler for writing next generation JavaScript").
 
+This module wrapper of [babel-plugin-espower](https://github.com/power-assert-js/babel-plugin-espower "babel-plugin-espower").
+
+## Purpose
+
+- Run Test with power-assert on the fly!
+- No configuration
+
 ## DESCRIPTION
 
 `espower-babel` is a Node.js module loader that instruments [power-assert](http://github.com/twada/power-assert) feature into target ECMAScript6 sources on the fly.
