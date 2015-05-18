@@ -2,7 +2,7 @@
 
 power-assert instrumentor for [Babel](https://babeljs.io/ "Babel · The transpiler for writing next generation JavaScript").
 
-This module wrapper of [babel-plugin-espower](https://github.com/power-assert-js/babel-plugin-espower "babel-plugin-espower").
+This module is wrapper of [babel-plugin-espower](https://github.com/power-assert-js/babel-plugin-espower "babel-plugin-espower").
 
 ## Purpose
 
