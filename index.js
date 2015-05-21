@@ -37,7 +37,7 @@ function espowerBabel(options) {
             return pluginName === "babel-plugin-espower";
         });
         if (!espowerPluginExists) {
-            babelOptions.plugins.push(createEspowerPlugin(options.espowerOptions));
+            babelOptions.plugins.push(createEspowerPlugin(babel, options.espowerOptions));
         }
         return babelOptions;
     }
