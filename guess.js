@@ -7,15 +7,19 @@ var path = require('path'),
     extension = '.js';
 
 // Override extension via (eg: `mocha --compilers <extension>:espower-babel/guess`)
-process.argv.forEach(function(arg){
+process.argv.forEach(function (arg) {
+    // <extension>:espower-babel/guess
     var args = arg.split(':');
     if (args.length <= 1) {
         return;
     }
-    var path = args[1];
-    if(require.resolve(path) === module.filename) {
-        extension = '.'+arg.split(':')[0];
+    var filePath = args[1];
+    var compilerFilePath = require.resolve(filePath);
+    var compilerFileExtension = args[0];
+    if (compilerFilePath !== module.filename) {
+        return;
     }
+    extension = '.' + compilerFileExtension;
 });
 
 packageData = require(path.join(process.cwd(), 'package.json'));
@@ -23,7 +27,7 @@ if (packageData &&
     typeof packageData.directories === 'object' &&
     typeof packageData.directories.test === 'string') {
     testDir = packageData.directories.test;
-    pattern = testDir + ((testDir.lastIndexOf('/', 0) === 0) ? '' : '/') + '**/*'+extension;
+    pattern = testDir + ((testDir.lastIndexOf('/', 0) === 0) ? '' : '/') + '**/*' + extension;
 }
 
 babelrc = resolveBabelrc(process.cwd(), {});
