@@ -11,7 +11,8 @@ var extensions = require.extensions,
 function espowerBabel(options) {
     var separator = (options.pattern.lastIndexOf('/', 0) === 0) ? '' : '/',
         pattern = options.cwd + separator + options.pattern,
-        babelrc = options.babelrc || {};
+        babelrc = options.babelrc || {},
+        extension = options.extension || ".js";
 
     var sourceMaps = {};
     // https://github.com/evanw/node-source-map-support
@@ -42,7 +43,7 @@ function espowerBabel(options) {
         return babelOptions;
     }
 
-    extensions[".js"] = function (localModule, filepath) {
+    extensions[extension] = function (localModule, filepath) {
         var result;
         // https://babeljs.io/docs/usage/api/
         var babelOptions = extend(babelrc, {

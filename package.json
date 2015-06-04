@@ -22,7 +22,7 @@
     "lib"
   ],
   "scripts": {
-    "test": "mocha --require './guess' test/**/*.js && mocha --require './test_loader/espower-traceur-loader' test/**/*.js"
+    "test": "mocha --require './guess' test/**/*.js && mocha --require './test_loader/espower-traceur-loader' test/**/*.js && mocha test/issues/17 --compilers es6:./guess"
   },
   "directories": {
     "test": "test/"
