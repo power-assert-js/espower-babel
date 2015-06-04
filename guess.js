@@ -6,13 +6,16 @@ var path = require('path'),
     babelrc,
     extension = '.js';
 
-// Override extension via `mocha --compilers <extension>:espower-babel/guess`
+// Override extension via (eg: `mocha --compilers <extension>:espower-babel/guess`)
 process.argv.forEach(function(arg){
-    if (arg.indexOf(':espower-babel/guess') === -1) {
+    var args = arg.split(':');
+    if (args.length <= 1) {
         return;
     }
-
-    extension = '.'+arg.split(':')[0];
+    var path = args[1];
+    if(require.resolve(path) === module.filename) {
+        extension = '.'+arg.split(':')[0];
+    }
 });
 
 packageData = require(path.join(process.cwd(), 'package.json'));
