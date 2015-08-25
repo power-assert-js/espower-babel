@@ -1,4 +1,4 @@
-# espower-babel [![Build Status](https://travis-ci.org/azu/espower-babel.svg?branch=master)](https://travis-ci.org/azu/espower-babel)
+# espower-babel [![Build Status](https://travis-ci.org/power-assert-js/espower-babel.svg?branch=master)](https://travis-ci.org/power-assert-js/espower-babel)
 
 power-assert instrumentor for [Babel](https://babeljs.io/ "Babel · The transpiler for writing next generation JavaScript").
 
@@ -62,7 +62,7 @@ $ mocha --compilers js:espower-babel/guess test/demo_test.js
   1 failing
 
   1) Person #mistake:
-     AssertionError:   # /Users/yosuke/go/src/github.com/azu/espower-babel/test/demo_test.js:24
+     AssertionError:   # test/demo_test.js:24
 
   assert(alice.name === bob.name)
          |     |    |   |   |
@@ -116,7 +116,7 @@ Then, run mocha with `--compilers js:espower-babel/guess`
 
     $ mocha --compilers js:espower-babel/guess spec/**/*.js
 
-Note: `'espower-babel/guess'` is inspired by [intelli-espower-loader](https://github.com/azu/intelli-espower-loader)
+Note: `'espower-babel/guess'` is inspired by [intelli-espower-loader](https://github.com/power-assert-js/intelli-espower-loader)
 
 
 ### More customization
