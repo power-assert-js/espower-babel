@@ -10,10 +10,10 @@
     "testing"
   ],
   "version": "3.2.0",
-  "homepage": "https://github.com/azu/espower-babel/",
+  "homepage": "https://github.com/power-assert-js/espower-babel/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/azu/espower-babel.git"
+    "url": "https://github.com/power-assert-js/espower-babel.git"
   },
   "main": "index.js",
   "files": [
@@ -30,7 +30,7 @@
   "author": "azu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/azu/espower-babel/issues"
+    "url": "https://github.com/power-assert-js/espower-babel/issues"
   },
   "dependencies": {
     "babel-core": "^5.0",
