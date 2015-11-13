@@ -168,7 +168,7 @@ e.g.)
 ```js
 require('espower-babel')({
     babelrc: {
-        "presets": ["es2015", "stage-3"],
+        "presets": ["es2015"],
         "plugins": ["transform-es2015-modules-commonjs"]
     }
 })
