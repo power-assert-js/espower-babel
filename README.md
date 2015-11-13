@@ -89,7 +89,7 @@ See the power-assert output appears!
 
 ## HOW TO USE
 
-### Zero-config mode
+### Zero-config mode(for testing)
 
 If your tests are located on `'test/**/*.js'`, just run mocha with `--compilers js:espower-babel/guess`
 
@@ -161,15 +161,21 @@ Babel has many transform options.
 
 `espower-babel` read `${cwd}/.babelrc` if exists.
 
-also can manually configure babel transform options.
+Also, you can manually configure babel transform options.
 
 ```js
 require('espower-babel')({
     babelrc: {
-        stage: 0
+        "presets": ["es2015", "stage-3"],
+        "plugins": ["transform-es2015-modules-commonjs"]
     }
 })
 ```
+
+**Caution**:
+ 
+Babel 6 no transform by default.
+It means that you must set babel config by `.babelrc` file or `babelrc` option.
 
 ### Transform all files with Babel **by default**
 
