@@ -174,7 +174,7 @@ require('espower-babel')({
 
 **Caution**:
  
-Babel 6 no transform by default.
+Babel 6 has not transform by default.
 It means that you must set babel config by `.babelrc` file or `babelrc` option.
 
 ### Transform all files with Babel **by default**
