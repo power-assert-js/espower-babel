@@ -163,6 +163,8 @@ Babel has many transform options.
 
 Also, you can manually configure babel transform options.
 
+e.g.)
+
 ```js
 require('espower-babel')({
     babelrc: {
@@ -180,6 +182,8 @@ It means that you must set babel config by `.babelrc` file or `babelrc` option.
 ### Transform all files with Babel **by default**
 
 Do limit transform files by setting `babelrc`
+
+e.g.)
 
 ```js
 require('espower-babel')({
