@@ -20,6 +20,7 @@ require('..')({
         ]
     },
     babelrc: {
-        stage: 0
+        "presets": ["es2015", "stage-3"],
+        "plugins": ["transform-es2015-modules-commonjs"]
     }
 });
