@@ -7,16 +7,16 @@ This module is wrapper of [babel-plugin-espower](https://github.com/power-assert
 ## Purpose
 
 - Writing ES6 tests with [Babel](http://babeljs.io/)
-- Running tests with [power-assert](https://github.com/twada/power-assert) on the fly!
+- Running tests with [power-assert](https://github.com/power-assert-js/power-assert) on the fly!
 - No configuration
 
 ## DESCRIPTION
 
-`espower-babel` is a Node.js module loader that instruments [power-assert](http://github.com/twada/power-assert) feature into target ECMAScript6 sources on the fly.
+`espower-babel` is a Node.js module loader that instruments [power-assert](https://github.com/power-assert-js/power-assert) feature into target ECMAScript6 sources on the fly.
 
 Please note that `espower-babel` is a beta version product. Pull-requests, issue reports and patches are always welcomed. See [power-assert](http://github.com/twada/power-assert) project for more documentation.
 
-If you want to use with [Traceur](https://github.com/google/traceur-compiler "Traceur"), please see [yosuke-furukawa/espower-traceur](https://github.com/yosuke-furukawa/espower-traceur "yosuke-furukawa/espower-traceur").
+If you want to use with [Traceur](https://github.com/google/traceur-compiler "Traceur"), please see [yosuke-furukawa/espower-traceur](https://github.com/power-assert-js/espower-traceur "yosuke-furukawa/espower-traceur").
 
 ## EXAMPLE
 
