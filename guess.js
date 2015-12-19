@@ -12,7 +12,7 @@ var path = require('path'),
 // such as `mocha --compilers <extension>:espower-babel/guess`,
 // override extension with the specified one.
 process.argv.forEach(function (arg) {
-    if (!~arg.indexOf(':')) {
+    if (arg.indexOf(':') === -1) {
         return;
     }
 
