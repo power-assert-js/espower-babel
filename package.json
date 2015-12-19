@@ -22,7 +22,7 @@
     "lib"
   ],
   "scripts": {
-    "test": "mocha --require './guess' test/**/*.js && mocha --require './test_loader/espower-traceur-loader' test/**/*.js && mocha test/issues/17 --compilers es6:./guess"
+    "test": "mocha --require './guess' test/**/*.js && mocha --require './test_loader/espower-traceur-loader' test/**/*.js && mocha test/issues/17 --compilers es6:./guess && mocha test/issues/24 --compilers js:./guess"
   },
   "directories": {
     "test": "test/"
@@ -45,6 +45,8 @@
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-stage-3": "^6.1.18",
     "expect.js": "^0.3.1",
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.2.0",
     "mocha": "^2.1.0",
     "power-assert": "^1.1.0"
   }
