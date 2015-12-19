@@ -22,7 +22,11 @@
     "lib"
   ],
   "scripts": {
-    "test": "mocha --require './guess' test/**/*.js && mocha --require './test_loader/espower-traceur-loader' test/**/*.js && mocha test/issues/17 --compilers es6:./guess && mocha test/issues/24 --compilers js:./guess --timeout 15000"
+    "test:guess": "mocha --require './guess' test/**/*.js",
+    "test:loader": "mocha --require './test_loader/espower-traceur-loader' test/**/*.js",
+    "test:extension": "mocha test/issues/17 --compilers es6:./guess",
+    "test:gulp": "mocha test/issues/24 --compilers js:./guess --timeout 15000",
+    "test": "npm-run-all --parallel test:*"
   },
   "directories": {
     "test": "test/"
@@ -48,6 +52,7 @@
     "gulp": "^3.9.0",
     "gulp-mocha": "^2.2.0",
     "mocha": "^2.1.0",
+    "npm-run-all": "^1.4.0",
     "power-assert": "^1.1.0"
   }
 }
