@@ -89,7 +89,12 @@ See the power-assert output appears!
 
 ## HOW TO USE
 
-### Zero-config mode(for testing)
+### <del>Zero-config mode(for testing)</del>
+
+Edit: Babel@6 require `.babelrc`. not work on zero config.
+
+You can use directry [babel-plugin-espower](https://github.com/power-assert-js/babel-plugin-espower "babel-plugin-espower").
+We have a simple migration tool(work on specific case) - [migrate-espower-babel-to-babel-plugin-espower](https://github.com/azu/migrate-espower-babel-to-babel-plugin-espower "migrate-espower-babel-to-babel-plugin-espower")
 
 If your tests are located on `'test/**/*.js'`, just run mocha with `--compilers js:espower-babel/guess`
 
@@ -117,7 +122,6 @@ Then, run mocha with `--compilers js:espower-babel/guess`
     $ mocha --compilers js:espower-babel/guess spec/**/*.js
 
 Note: `'espower-babel/guess'` is inspired by [intelli-espower-loader](https://github.com/power-assert-js/intelli-espower-loader)
-
 
 ### More customization
 
