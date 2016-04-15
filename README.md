@@ -4,6 +4,24 @@ power-assert instrumentor for [Babel](https://babeljs.io/ "Babel · The transpil
 
 This module is wrapper of [babel-plugin-espower](https://github.com/power-assert-js/babel-plugin-espower "babel-plugin-espower").
 
+## :warning: Deprecated :warning:
+
+espower-babel is deprecated module.
+
+Please directly use combination of [babel-register](https://www.npmjs.com/package/babel-register "babel-register") and [babel-preset-power-assert](https://github.com/power-assert-js/babel-preset-power-assert "babel-preset-power-assert").
+
+:heart: We've created migration tool: [migrate-espower-babel-to-babel-preset-power-assert](https://github.com/power-assert-js/migrate-espower-babel-to-babel-preset-power-assert "migrate-espower-babel-to-babel-preset-power-assert").
+
+`migrate-espower-babel-to-babel-preset-power-assert` migrate babel-register + babel-preset-power-assert from espower-babel.
+
+```diff
+- espower-babel
++ babel-register
++ babel-preset-power-assert
+```
+
+Related Issue: [Deprecated: espower-babel · Issue #27 · power-assert-js/espower-babel](https://github.com/power-assert-js/espower-babel/issues/27 "Deprecated: espower-babel · Issue #27 · power-assert-js/espower-babel")
+
 ## Purpose
 
 - Writing ES6 tests with [Babel](http://babeljs.io/)
